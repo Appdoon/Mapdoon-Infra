@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
       - name: sql-server
+        securityContext:
+          runAsUser: 0
         image: mcr.microsoft.com/mssql/server
         env:
         - name: SA_PASSWORD
