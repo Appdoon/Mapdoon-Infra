@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sql-server
+  namespace: mapdoon
+spec:
+  serviceName: "sql-server"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sql-server
+  template:
+    metadata:
+      labels:
+        app: sql-server
+    spec:
+      containers:
+      - name: sql-server
+        image: mcr.microsoft.com/mssql/server
+        env:
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sql-server-sa
+              key: sa-password
+        - name: ACCEPT_EULA
+          value: "Y"
+        ports:
+        - containerPort: 1433
+          name: sql-server
+        volumeMounts:
+        - name: data
+          mountPath: /var/opt/mssql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: local-storage
+      resources:
+        requests:
+          storage: 5Gi
