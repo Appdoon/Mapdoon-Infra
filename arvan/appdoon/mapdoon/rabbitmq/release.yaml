@@ -9,7 +9,7 @@ spec:
   releaseName: rabbitmq
   chart:
     spec:
-      chart: ./arvan/appdoon/mapdoon/rabbitmq
+      chart: ./arvan/appdoon/mapdoon/rabbitmq/chart
       sourceRef:
         kind: GitRepository
         name: flux-system
