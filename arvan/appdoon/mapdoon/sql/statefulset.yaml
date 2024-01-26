@@ -31,7 +31,11 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /var/opt/mssql/data
-  volumes:
-  - name: data
-    persistentVolumeClaim:
-      claimName: mapdoon-sql
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 5Gi

@@ -10,11 +10,13 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
+  hostPath:
+    path: "/mnt/mapdoon/sql/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mapdoon-sql
+  name: data-sql-server-0
   namespace: mapdoon
 spec:
   accessModes:
