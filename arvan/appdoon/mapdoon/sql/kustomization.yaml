@@ -4,4 +4,4 @@ namespace: mapdoon
 resources:
   - statefulset.yaml
   - service.yaml
-  - configmap.yaml
+  - sealedsecret.yaml
