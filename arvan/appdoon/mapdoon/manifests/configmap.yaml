@@ -5,6 +5,10 @@ metadata:
   namespace: appdoon
 data:
   MINIO_HOST: "minio.mapdoon.svc.cluster.local:9000"
+  RABIITMQ_HOST: "rabbitmq-headless.mapdoon.svc.cluster.local"
+  RABIITMQ_VIRTUALPATH: "/"
+  RABIITMQ_USERNAME: "mapdoon"
+  RABIITMQ_PASSWORD: "mapdoon"
   # MINIO_ACCESS_KEY: "mapdoon1234"
   # MINIO_SECRET_KEY: "mapdoon1234"
   ASPNETCORE_ENVIRONMENT: Development
