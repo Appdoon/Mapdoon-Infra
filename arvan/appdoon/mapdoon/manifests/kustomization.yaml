@@ -6,3 +6,5 @@ resources:
   - service.yaml
   - configmap.yaml
   - registry-sealedsecret.yaml
+  - nginx.yaml
+  - nginx-service.yaml

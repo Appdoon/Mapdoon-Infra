@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mapdoon-front
+  namespace: mapdoon
+spec:
+  selector:
+    app: mapdoon-front
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: 31000
+  type: NodePort

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapdoon-front
+  namespace: mapdoon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mapdoon-front
+  template:
+    metadata:
+      labels:
+        app: mapdoon-front
+    spec:
+      containers:
+        - name: mapdoon-front
+          image: ghcr.io/sharyash81/appdoon-front:v1
+          ports:
+            - containerPort: 3000
