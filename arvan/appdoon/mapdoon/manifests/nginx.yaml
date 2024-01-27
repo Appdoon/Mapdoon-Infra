@@ -13,6 +13,8 @@ spec:
       labels:
         app: mapdoon-front
     spec:
+      imagePullSecrets:
+      - name: ghcr.io.secret
       containers:
         - name: mapdoon-front
           image: ghcr.io/sharyash81/appdoon-front:v1
