@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: appdoon
-          image: appdoon:v1
-          imagePullPolicy: "Never"
+          image: ghcr.io/sharyash81/appdoon:v1
+          imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5000
           env:
