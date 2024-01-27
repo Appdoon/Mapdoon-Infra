@@ -4,5 +4,8 @@ metadata:
   name: appdoon-config
   namespace: appdoon
 data:
+  MINIO_HOST: "minio.mapdoon.svc.cluster.local:9000"
+  # MINIO_ACCESS_KEY: "mapdoon1234"
+  # MINIO_SECRET_KEY: "mapdoon1234"
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://+:5000

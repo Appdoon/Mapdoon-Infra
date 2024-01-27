@@ -19,6 +19,17 @@ spec:
           imagePullPolicy: "Never"
           ports:
             - containerPort: 5000
+          env:
+          - name: MINIO_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: minio-auth
+                key: access
+          - name: MINIO_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: minio-auth
+                key: secret   
           envFrom:
             - configMapRef:
                 name: appdoon-config
