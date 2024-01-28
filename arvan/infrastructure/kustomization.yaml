@@ -4,3 +4,4 @@ bases:
   - repositories
   - namespaces
   - sealed-secret
+  # - kube-dashboard
