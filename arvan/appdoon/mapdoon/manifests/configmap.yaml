@@ -4,7 +4,7 @@ metadata:
   name: appdoon-config
   namespace: appdoon
 data:
-  MINIO_HOST: "minio.mapdoon.svc.cluster.local:9000"
+  MINIO_HOST: "5.34.203.143:31900"
   RABIITMQ_HOST: "rabbitmq-headless.mapdoon.svc.cluster.local"
   RABIITMQ_VIRTUALPATH: "/"
   RABIITMQ_USERNAME: "mapdoon"
