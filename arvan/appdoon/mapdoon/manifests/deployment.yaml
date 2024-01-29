@@ -16,22 +16,22 @@ spec:
       imagePullSecrets:
       - name: ghcr.io.secret
       containers:
-        - name: appdoon
-          image: ghcr.io/sharyash81/appdoon:v1 # {"$imagepolicy": "mapdoon:appdoon"}
-          imagePullPolicy: "Always"
-          ports:
-            - containerPort: 5000
-          env:
-          - name: MINIO_ACCESS_KEY
-            valueFrom:
-              secretKeyRef:
-                name: minio-auth
-                key: access
-          - name: MINIO_SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: minio-auth
-                key: secret   
-          envFrom:
-            - configMapRef:
-                name: appdoon-config
+      - name: appdoon
+        image: ghcr.io/sharyash81/appdoon:main-7 # {"$imagepolicy": "mapdoon:appdoon"}
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MINIO_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-auth
+              key: access
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-auth
+              key: secret
+        envFrom:
+        - configMapRef:
+            name: appdoon-config
