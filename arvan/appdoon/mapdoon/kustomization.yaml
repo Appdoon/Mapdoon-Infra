@@ -6,3 +6,4 @@ resources:
   - sql.yaml
   - minio.yaml
   - rabbitmq.yaml
+  - automation.yaml
