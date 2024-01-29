@@ -17,7 +17,7 @@ spec:
       - name: ghcr.io.secret
       containers:
       - name: appdoon
-        image: ghcr.io/sharyash81/appdoon:main-7 # {"$imagepolicy": "mapdoon:appdoon"}
+        image: ghcr.io/sharyash81/appdoon:main-8 # {"$imagepolicy": "mapdoon:appdoon"}
         imagePullPolicy: "Always"
         ports:
         - containerPort: 5000
