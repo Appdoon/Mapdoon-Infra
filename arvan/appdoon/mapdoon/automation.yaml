@@ -1,51 +1,13 @@
----
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageRepository
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
 metadata:
-  name: appdoon-repo
+  name: automation
   namespace: mapdoon
 spec:
-  image: ghcr.io/sharyash81/appdoon
-  interval: 1m0s
-  secretRef:
-    name: ghcr.io.secret
----
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImagePolicy
-metadata:
-  name: appdoon
-  namespace: mapdoon
-spec:
-  imageRepositoryRef:
-    name: appdoon-repo
-  filterTags:
-    pattern: ^main-(\d+)$
-  policy:
-    numerical:
-      order: asc
----
-# apiVersion: image.toolkit.fluxcd.io/v1beta1
-# kind: ImageUpdateAutomation
-# metadata:
-#   name: appdoon
-#   namespace: mapdoon
-# spec:
-#   git:
-#     checkout:
-#       ref:
-#         branch: master
-#     commit:
-#       author:
-#         email: fluxcdbot@users.noreply.github.com
-#         name: fluxcdbot
-#       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
-#     push:
-#       branch: master
-#   interval: 1m0s
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#     namespace: flux-system
-#   update:
-#     path: ./arvan/appdoon/mapdoon/
-#     strategy: Setters
+  interval: 1m
+  path: ./arvan/appdoon/mapdoon/automation
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
