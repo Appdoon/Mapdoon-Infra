@@ -19,7 +19,8 @@ spec:
   imageRepositoryRef:
     name: appdoon-repo
   filterTags:
-    pattern: ^main-(\d+)$
+    pattern: ^main-(?P<ts>\d+)$
+    extract: '$ts'
   policy:
     numerical:
       order: asc
