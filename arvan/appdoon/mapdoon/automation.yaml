@@ -1,0 +1,25 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: appdoon-repo
+  namespace: mapdoon
+spec:
+  image: ghcr.io/sharyash81/appdoon
+  interval: 1m0s
+  secretRef:
+    name: ghcr.io.secret
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: appdoon
+  namespace: mapdoon
+spec:
+  imageRepositoryRef:
+    name: appdoon-repo
+  filterTags:
+    pattern: ^main-(\d+)$
+  policy:
+    numerical:
+      order: asc
